@@ -27,28 +27,26 @@ export default function Todo({
         type='text'
         className='list'
         onChange={handleChange}
+        value={todo.title === '' ? newTitle : todo.title}
       />
       <div>
         <button
           className='button-complete'
-          onChange={() => toggleComplete(todo.id)}
+          onClick={() => toggleComplete(todo)}
         >
           {/* <CheckCircleIcon id='i' /> */}
-          complete
+          Done
         </button>
         <button
           className='button-edit'
-          onChange={() => handleEdit(todo, newTitle)}
+          onClick={() => handleEdit(todo, newTitle)}
         >
           {/* <EditIcon id='i' /> */}
-          edit
+          Edit
         </button>
-        <button
-          className='button-delete'
-          onChange={() => handleDelete(todo.id)}
-        >
+        <button className='button-delete' onClick={() => handleDelete(todo.id)}>
           {/* <DeleteIcon id='i' /> */}
-          delete
+          Delete
         </button>
       </div>
     </div>
