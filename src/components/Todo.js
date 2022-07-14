@@ -1,7 +1,4 @@
 import { useState } from 'react';
-// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-// import EditIcon from '@mui/icons-material/Edit';
-// import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Todo({
   todo,
@@ -22,30 +19,28 @@ export default function Todo({
 
   return (
     <div className='todo'>
-      <input
-        style={{ textDecoration: todo.completed && 'line-through' }}
-        type='text'
-        className='list'
-        onChange={handleChange}
-        value={todo.title === '' ? newTitle : todo.title}
-      />
-      <div>
+      <div className='text-field'>
+        <input
+          style={{ textDecoration: todo.completed && 'line-through' }}
+          type='text'
+          onChange={handleChange}
+          value={todo.title === '' ? newTitle : todo.title}
+        />
+      </div>
+      <div clasname='buttons'>
         <button
           className='button-complete'
           onClick={() => toggleComplete(todo)}
         >
-          {/* <CheckCircleIcon id='i' /> */}
-          Done
+          Complete
         </button>
         <button
           className='button-edit'
           onClick={() => handleEdit(todo, newTitle)}
         >
-          {/* <EditIcon id='i' /> */}
           Edit
         </button>
         <button className='button-delete' onClick={() => handleDelete(todo.id)}>
-          {/* <DeleteIcon id='i' /> */}
           Delete
         </button>
       </div>
